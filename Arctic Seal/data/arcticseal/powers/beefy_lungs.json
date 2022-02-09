@@ -1,0 +1,201 @@
+{
+	"name": "Beefy Lungs",
+	"description": "You can hold your breath for a ridiculously long time, but it is not forever.",
+	"type": "origins:multiple",
+	"timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 160,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 19,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "*:beefy_lungs_timer",
+				"comparison": "!=",
+				"compare_to": 160
+			}
+		},
+		"start_value": 160
+	},
+	"2sec": {
+		"type": "origins:action_over_time",
+		"interval": 30,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:submerged_in",
+					"fluid": "minecraft:water"
+				},
+				{
+					"type": "origins:status_effect",
+					"effect": "minecraft:water_breathing",
+					"inverted": true
+				}
+			]
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "*:beefy_lungs_timer",
+			"change": 160,
+			"set": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:gain_air",
+					"value": 1000
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:enchantment",
+								"enchantment": "minecraft:respiration",
+								"calculation": "sum",
+								"comparison": "==",
+								"compare_to": 0
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "*:beefy_lungs_timer",
+											"comparison": "==",
+											"compare_to": 0
+										},
+										"if_action": {
+											"type": "origins:damage",
+											"amount": 2,
+											"source": {
+												"name": "drown",
+												"bypasses_armor": true
+											}
+										}
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "*:beefy_lungs_timer",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:enchantment",
+								"enchantment": "minecraft:respiration",
+								"calculation": "sum",
+								"comparison": "==",
+								"compare_to": 1
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.50,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:beefy_lungs_timer",
+									"change": -1
+								},
+								"fail_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "*:beefy_lungs_timer",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									"if_action": {
+										"type": "origins:damage",
+										"amount": 2,
+										"source": {
+											"name": "drown",
+											"bypasses_armor": true
+										}
+									}
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:enchantment",
+								"enchantment": "minecraft:respiration",
+								"calculation": "sum",
+								"comparison": "==",
+								"compare_to": 2
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.33,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:beefy_lungs_timer",
+									"change": -1
+								},
+								"fail_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "*:beefy_lungs_timer",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									"if_action": {
+										"type": "origins:damage",
+										"amount": 2,
+										"source": {
+											"name": "drown",
+											"bypasses_armor": true
+										}
+									}
+								}
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:enchantment",
+								"enchantment": "minecraft:respiration",
+								"calculation": "sum",
+								"comparison": ">=",
+								"compare_to": 3
+							},
+							"action": {
+								"type": "origins:chance",
+								"chance": 0.25,
+								"action": {
+									"type": "origins:change_resource",
+									"resource": "*:beefy_lungs_timer",
+									"change": -1
+								},
+								"fail_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "*:beefy_lungs_timer",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									"if_action": {
+										"type": "origins:damage",
+										"amount": 2,
+										"source": {
+											"name": "drown",
+											"bypasses_armor": true
+										}
+									}
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	}
+}

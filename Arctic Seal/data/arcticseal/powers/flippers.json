@@ -1,0 +1,36 @@
+{
+	"name":"Flippers",
+	"description":"Your hands are largely useless. You cannot use bows, crossbows, shields, and all projectiles excluding tridents, and all damage you deal is only half as effective.",
+	"type":"origins:multiple",
+	"weildnt":{
+		"name":"WEILDN'T",
+		"type":"origins:prevent_item_use",
+		"item_condition":{
+			"type":"origins:ingredient",
+			"ingredient":{
+				"tag":"arcticseal:weildnt"
+			}
+		}
+	},
+	"damagent":{
+		"type":"origins:modify_damage_dealt",
+		"damage_condition":{
+			"type":"origins:or",
+			"inverted":true,
+			"conditions":[
+				{
+					"type":"origins:name",
+					"name":"trident"
+				},
+				{
+					"type":"origins:name",
+					"name":"trident.item"
+				}
+			]
+		},
+		"modifier": {
+			"operation": "multiply_base",
+			"value": -0.5
+		}
+	}
+}

@@ -1,0 +1,69 @@
+{
+	"name": "Heat Sink",
+	"description": "You rapidly overheat in hot climates, taking damage over time.",
+	"type": "origins:multiple",
+	"timer": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 5,
+		"hud_render": {
+			"shoudl_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 15,
+			"inverted": true,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:heat_sink_timer",
+				"comparison": "!=",
+				"compare_to": 5
+			}
+		},
+		"start_value": 5
+	},
+	"2sec": {
+		"type": "origins:action_over_time",
+		"interval": 40,
+		"condition": {
+			"type": "origins:biome",
+			"condition": {
+				"type": "origins:temperature",
+				"comparison": ">=",
+				"compare_to": 2
+			}
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "*:heat_sink_timer",
+			"change": 5,
+			"set": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:heat_sink_timer",
+					"change": -1
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:heat_sink_timer",
+						"comparison": "==",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:damage",
+						"amount": 1,
+						"source": {
+							"name": "onFire",
+							"fire": true,
+							"bypasses_armor": true
+						}
+					}
+				}
+			]
+		}
+	}
+}

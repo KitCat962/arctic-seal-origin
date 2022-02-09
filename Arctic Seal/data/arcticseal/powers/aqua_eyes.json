@@ -1,0 +1,7 @@
+{
+	"name":"Aqua Eyes",
+	"description":"You have perfect underwater vision.",
+	"type": "origins:modify_camera_submersion",
+  	"from": "water",
+  	"to": "none"
+}

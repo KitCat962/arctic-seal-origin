@@ -1,0 +1,18 @@
+{
+	"name":"Arctic Seal",
+	"description":"You are a chonky seal.",
+	"icon":"minecraft:packed_ice",
+	"impact":3,
+	"powers":[
+		"arcticseal:aqua_eyes",
+		"arcticseal:beefy_lungs",
+		"arcticseal:blubber",
+		"arcticseal:chonky",
+		"arcticseal:flippers",
+		"arcticseal:heat_sink",
+		"arcticseal:highly_flammable",
+		"arcticseal:legs_of_neptune",
+		"arcticseal:picky_eater",
+		"arcticseal:smol_chonk"
+	]
+}

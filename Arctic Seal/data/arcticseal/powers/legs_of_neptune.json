@@ -1,0 +1,33 @@
+{
+	"name":"Legs of Neptune",
+	"description":"Using your legs, you are immensely fast in water, but they aren't very useful on land. You can't walk very fast on land.",
+	"type":"origins:multiple",
+	"walk":{
+		"type":"origins:conditioned_attribute",
+		"tick_rate": 10,
+		"modifier": {
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "multiply_base",
+			"value": -0.4
+		},
+		"condition": {
+			"type": "origins:fluid_height",
+			"fluid": "minecraft:water",
+			"comparison": "==",
+			"compare_to": 0
+		}
+	},
+	"swim":{
+		"type": "origins:modify_swim_speed",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 2
+		},
+		"condition": {
+			"type": "origins:fluid_height",
+			"fluid": "minecraft:water",
+			"comparison": "!=",
+			"compare_to": 0
+		}
+	}
+}

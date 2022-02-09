@@ -1,0 +1,17 @@
+{
+	"name":"Blubber",
+	"description":"You are too chonky for armor to fit on you. You can still wear a helmet though.",
+	"type": "origins:restrict_armor",
+    "chest": {
+        "type": "origins:empty",
+		"inverted":true
+    },
+    "legs": {
+        "type": "origins:empty",
+		"inverted":true
+    },
+    "feet": {
+        "type": "origins:empty",
+		"inverted":true
+    }
+}
