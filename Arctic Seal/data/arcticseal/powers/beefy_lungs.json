@@ -8,8 +8,8 @@
 		"max": 160,
 		"hud_render": {
 			"should_render": true,
-			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-			"bar_index": 19,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+			"bar_index": 4,
 			"condition":{
 				"type": "origins:resource",
 				"resource": "*:beefy_lungs_timer",
