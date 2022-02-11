@@ -1,7 +1,7 @@
 An Arctic Seal origin requested by a member of the Dark Moon SMP.<br/>
 Join here: //insert link here<br/><br/>
 Arctic Seal<br/>
-You are a chonky seal.<br/>
+This race used to have a grand underwater civilization. Unfourtunatly when it was attacked, these seals didn't have the combat prowess to defend it. Now they are scattered far and wide, their civilization mostly forgotten.<br/>
 🟢 Chonky: You have an extra 10 hearts.<br/>
 🟢 Beefy Lungs: You can hold your breath for a ridiculously long time, but it is not forever.<br/>
 🟢 Aqua Eyes: You have perfect underwater vision.<br/>
